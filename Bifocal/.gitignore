@@ -1,0 +1,54 @@
+# Xcode
+#
+# gitignore contributors: remember to keep this file platform-agnostic
+# gitignore designers: remember to keep this file IDE-agnostic
+
+## User-specific files
+*.xcuserdatad
+*.xccheckout
+*.moved-aside
+
+## Build generated
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM/
+*.xcarchive
+
+## Swift Package Manager
+#
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Packages/
+#
+# Add this line if you want to avoid checking in resolved dependencies from Swift Package Manager dependencies.
+# *.resolve
+#
+# We recommend against adding the following lines to your .gitignore.
+# See more context at https://github.com/github/gitignore/pull/3529#issuecomment-698330368
+#
+# Package.resolved
+# .swiftpm/
+
+## CocoaPods
+Pods/
+!Podfile
+!Podfile.lock
+
+## Carthage
+Carthage/Build
+Carthage/Checkouts
+
+## Fastlane
+# It is recommended to not store the screenshots in the git repo.
+# Instead, use fastlane to re-generate the screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+## Secrets - IMPORTANT
+# Create a file like this to store your API keys and add its name here.
+Secrets.xcconfig

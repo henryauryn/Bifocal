@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24299" systemVersion="25A362" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ContentBlock" representedClassName="ContentBlock" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="instruction" maxCount="1" deletionRule="Nullify" destinationEntity="InstructionPage" inverseName="contentBlocks" inverseEntity="InstructionPage"/>
+    </entity>
+    <entity name="CopeAhead" representedClassName="CopeAhead" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="diaryEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DiaryEntry" inverseName="aboutACopeAhead" inverseEntity="DiaryEntry"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SkillEntity"/>
+    </entity>
+    <entity name="DiaryEntry" representedClassName="DiaryEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="theText" optional="YES" attributeType="String"/>
+        <relationship name="aboutACopeAhead" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CopeAhead" inverseName="diaryEntries" inverseEntity="CopeAhead"/>
+        <relationship name="aboutASkill" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SkillLogged" inverseName="diaryEntry" inverseEntity="SkillLogged"/>
+    </entity>
+    <entity name="InstructionPage" representedClassName="InstructionPage" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="contentBlocks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ContentBlock" inverseName="instruction" inverseEntity="ContentBlock"/>
+        <relationship name="skill" maxCount="1" deletionRule="Nullify" destinationEntity="SkillEntity" inverseName="instructions" inverseEntity="SkillEntity"/>
+    </entity>
+    <entity name="SkillEntity" representedClassName="SkillEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="fullTitle" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="symbol" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="instructions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="InstructionPage" inverseName="skill" inverseEntity="InstructionPage"/>
+        <relationship name="log" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SkillLogged" inverseName="skilll" inverseEntity="SkillLogged"/>
+        <relationship name="schedule" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SkillSchedule" inverseName="skill" inverseEntity="SkillSchedule"/>
+        <relationship name="type" maxCount="1" deletionRule="Nullify" destinationEntity="SkillType" inverseName="skills" inverseEntity="SkillType"/>
+    </entity>
+    <entity name="SkillLogged" representedClassName="SkillLogged" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="diaryEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryEntry" inverseName="aboutASkill" inverseEntity="DiaryEntry"/>
+        <relationship name="skilll" maxCount="1" deletionRule="Nullify" destinationEntity="SkillEntity" inverseName="log" inverseEntity="SkillEntity"/>
+    </entity>
+    <entity name="SkillSchedule" representedClassName="SkillSchedule" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="quantity" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="skill" maxCount="1" deletionRule="Nullify" destinationEntity="SkillEntity" inverseName="schedule" inverseEntity="SkillEntity"/>
+    </entity>
+    <entity name="SkillType" representedClassName="SkillType" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SkillEntity" inverseName="type" inverseEntity="SkillEntity"/>
+    </entity>
+</model>

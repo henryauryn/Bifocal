@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "C0A2D086-A737-4AB7-B529-8A08E17AC0F5",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Bifocal.xcodeproj",
+      "identifier" : "2E7A28D22E76B47D00E30C1A",
+      "name" : "Bifocal"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Bifocal.xcodeproj",
+        "identifier" : "2E0776DF2E8DAA950031FA9E",
+        "name" : "BifocalUITests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Bifocal.xcodeproj",
+        "identifier" : "2E0776EE2E8DAAA50031FA9E",
+        "name" : "BifocalTests"
+      }
+    }
+  ],
+  "version" : 1
+}
