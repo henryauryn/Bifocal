@@ -37,5 +37,5 @@ Thanks to SwiftUI's philosophy of views being 'functions of state', a more rigid
 
 <br>
 <p align="center">
-  Made with ❤️ by <a href="https://henrylightfoot.co.uk">Henry Lightfoot</a>
+  Made with compassion by <a href="https://henrylightfoot.co.uk">Henry Lightfoot</a>
 </p>
